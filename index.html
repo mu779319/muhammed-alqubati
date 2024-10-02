@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,10 @@
       property="og:description"
       content="Full Stack Web Developer with experience in developing web applications from front-end to back-end."
     />
-    <meta property="og:url" content="https://mu779319.github.io/muhammed-alqubati/" />
+    <meta
+      property="og:url"
+      content="https://mu779319.github.io/muhammed-alqubati/"
+    />
     <meta
       property="og:image"
       content="https://mu779319.github.io/muhammed-alqubati/Profile.jpg"
@@ -58,6 +61,10 @@
         border-radius: 50%;
         border: 5px solid var(--primary-color);
         margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+      .profile-img:hover {
+        transform: scale(1.05);
       }
       header h1 {
         margin: 0;
@@ -76,6 +83,10 @@
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .section:hover {
+        transform: translateY(-5px);
       }
       h2 {
         color: var(--primary-color);
@@ -96,6 +107,24 @@
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 0.9em;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+      }
+      .skill:hover {
+        transform: translateY(-2px);
+      }
+      .skill-bar {
+        width: 50px;
+        height: 5px;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin-left: 10px;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .skill-level {
+        height: 100%;
+        background-color: white;
       }
       .projects {
         display: grid;
@@ -107,6 +136,10 @@
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .project:hover {
+        transform: translateY(-5px);
       }
       .social-links {
         display: flex;
@@ -117,18 +150,100 @@
       .social-links a {
         color: #fff;
         font-size: 1.5em;
-        transition: color 0.3s ease;
+        transition: color 0.3s ease, transform 0.3s ease;
       }
       .social-links a:hover {
         color: var(--primary-color);
+        transform: scale(1.1);
+      }
+      nav {
+        background-color: var(--primary-color);
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        /* justify-content: center; */
+      }
+      nav ul li {
+        margin: 0 15px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease, transform 0.3s ease;
+        display: inline-block;
+      }
+      nav ul li a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .btn:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
       }
       @media (max-width: 768px) {
+        nav .container {
+          justify-content: space-between;
+        }
         .profile-img {
           width: 150px;
           height: 150px;
         }
         header h1 {
           font-size: 2em;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin: 5px 0;
+        }
+        nav ul {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: var(--primary-color);
+          padding: 10px 0;
+        }
+        nav ul.show {
+          display: flex;
         }
       }
     </style>
@@ -149,39 +264,126 @@
         ></a>
         <a href="mailto:mu779319@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
+      <a href="#" class="btn" style="margin-top: 20px">Download CV</a>
     </header>
 
+    <nav>
+      <div class="container">
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navMenu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container main-content">
-      <section class="section">
+      <section id="about" class="section">
         <h2><i class="fas fa-user"></i> About Me</h2>
         <p>
-          Hello! I'm a full stack web developer with experience in developing
-          web applications from front-end to back-end. I have a great passion
-          for creating innovative and effective solutions for complex problems.
+          Hello! I'm a Full Stack Web Developer with experience in developing
+          web applications from front-end to back-end. I have a passion for
+          creating innovative and effective solutions to complex problems.
         </p>
       </section>
 
-      <section class="section">
+      <section id="skills" class="section">
         <h2><i class="fas fa-code"></i> Skills</h2>
         <div class="skills">
-          <span class="skill">HTML5</span>
-          <span class="skill">CSS3</span>
-          <span class="skill">JavaScript (ES6+)</span>
-          <span class="skill">React.js</span>
-          <span class="skill">Vue.js</span>
-          <span class="skill">Node.js</span>
-          <span class="skill">Express.js</span>
-          <span class="skill">Python</span>
-          <span class="skill">Django</span>
-          <span class="skill">SQL</span>
-          <span class="skill">MongoDB</span>
-          <span class="skill">Git</span>
-          <span class="skill">Docker</span>
-          <span class="skill">RESTful APIs</span>
+          <span class="skill"
+            >C# .NET
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div></div
+          ></span>
+          <span class="skill"
+            >VB .NET
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div></div
+          ></span>
+          <span class="skill"
+            >PHP
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 80%"></div></div
+          ></span>
+          <span class="skill"
+            >C++
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 75%"></div></div
+          ></span>
+          <span class="skill"
+            >HTML5
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 95%"></div></div
+          ></span>
+          <span class="skill"
+            >CSS3
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div></div
+          ></span>
+          <span class="skill"
+            >JavaScript (ES6+)
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div></div
+          ></span>
+          <span class="skill"
+            >Node.js
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 80%"></div></div
+          ></span>
+          <span class="skill"
+            >React.js
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div></div
+          ></span>
+          <span class="skill"
+            >React Native
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 75%"></div></div
+          ></span>
+          <span class="skill"
+            >.NET MAUI
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 70%"></div></div
+          ></span>
+          <span class="skill"
+            >SQL Server
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div></div
+          ></span>
+          <span class="skill"
+            >MySQL
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div></div
+          ></span>
+          <span class="skill"
+            >Oracle
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 80%"></div></div
+          ></span>
+          <span class="skill"
+            >GitHub
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div></div
+          ></span>
+          <span class="skill"
+            >RESTful APIs
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div></div
+          ></span>
+          <span class="skill"
+            >SEO
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 75%"></div></div
+          ></span>
         </div>
       </section>
 
-      <section class="section">
+      <section id="experience" class="section">
         <h2><i class="fas fa-briefcase"></i> Experience</h2>
         <ul>
           <li>
@@ -195,7 +397,23 @@
         </ul>
       </section>
 
-      <section class="section">
+      <section id="education" class="section">
+        <h2>
+          <i class="fas fa-graduation-cap"></i> Education & Certifications
+        </h2>
+        <ul>
+          <li>
+            <strong>Bachelor of Computer Science</strong> - XYZ University (2014
+            - 2018)
+          </li>
+          <li>
+            <strong>Advanced Web Development Certificate</strong> - ABC Tech
+            Academy (2019)
+          </li>
+        </ul>
+      </section>
+
+      <section id="projects" class="section">
         <h2><i class="fas fa-project-diagram"></i> Projects</h2>
         <div class="projects">
           <div class="project">
@@ -204,6 +422,7 @@
               A web application for managing tasks and projects using React.js
               and Node.js.
             </p>
+            <a href="#" class="btn">View Project</a>
           </div>
           <div class="project">
             <h3>E-commerce Platform</h3>
@@ -211,6 +430,7 @@
               An e-commerce website with integrated payment system using Vue.js
               and Django.
             </p>
+            <a href="#" class="btn">View Project</a>
           </div>
           <div class="project">
             <h3>Weather App</h3>
@@ -218,24 +438,55 @@
               A mobile application that displays weather information using React
               Native.
             </p>
+            <a href="#" class="btn">View Project</a>
           </div>
           <div class="project">
             <h3>Driving License Rental System</h3>
             <p>
-              Developed a system for renting driving licenses, streamlining the
-              process for users and administrators.
+              Development of a system for renting driving licenses, facilitating
+              the process for users and administrators.
             </p>
+            <a href="#" class="btn">View Project</a>
           </div>
           <div class="project">
-            <h3>Al-Hajr Community College Management System and Website</h3>
+            <h3>Al-Hajar Community College Management System and Website</h3>
             <p>
-              Created a comprehensive management system and website for Al-Hajr
-              Community College, enhancing administrative efficiency and online
-              presence.
+              Creation of a comprehensive management system and website for
+              Al-Hajar Community College, enhancing administrative efficiency
+              and online presence.
             </p>
+            <a href="#" class="btn">View Project</a>
           </div>
         </div>
       </section>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        menuToggle.addEventListener("click", function () {
+          navMenu.classList.toggle("show");
+        });
+
+        // إغلاق القائمة عند النقر على أي رابط
+        const navLinks = navMenu.getElementsByTagName("a");
+        for (let i = 0; i < navLinks.length; i++) {
+          navLinks[i].addEventListener("click", function () {
+            navMenu.classList.remove("show");
+          });
+        }
+
+        // إغلاق القائمة عند النقر خارجها
+        document.addEventListener("click", function (event) {
+          const isClickInside =
+            navMenu.contains(event.target) || menuToggle.contains(event.target);
+          if (!isClickInside && navMenu.classList.contains("show")) {
+            navMenu.classList.remove("show");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
