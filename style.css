@@ -6,21 +6,6 @@
   font-style: normal;
   font-display: swap;
 }
-/* 
-@font-face {
-  font-family: "Font Awesome 6 Brands";
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url(../font/fa-brands-400.woff2) format("woff2");
-}
-@font-face {
-  font-family: "Font Awesome 6 Free";
-  font-style: normal;
-  font-weight: 900;
-  font-display: block;
-  src: url(../font/fa-solid-900.woff2) format("woff2");
-} */
 
 /*تعريف المتغيرات*/
 :root {
@@ -33,17 +18,13 @@
 * {
   font-family: "Cairo", Arial, sans-serif;
   line-height: 1.4;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
 }
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
+  font-size: 16px;
 }
 .container {
   max-width: 1100px;
@@ -70,7 +51,7 @@ header {
 }
 header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2.8em;
 }
 header p {
   font-size: 1.2em;
@@ -96,12 +77,6 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* 3. العناوين (Typography) - تم تحسينها لتكون أوضح وأكبر */
-h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
 h2 {
   font-size: 2.2rem;
   color: var(--primary-color);
@@ -138,18 +113,6 @@ ul {
 }
 .skill:hover {
   transform: translateY(-2px);
-}
-.skill-bar {
-  width: 50px;
-  height: 5px;
-  background-color: rgba(255, 255, 255, 0.3);
-  margin-left: 10px;
-  border-radius: 2px;
-  overflow: hidden;
-}
-.skill-level {
-  height: 100%;
-  background-color: white;
 }
 
 .social-links {
@@ -236,9 +199,7 @@ nav ul li a:hover {
     width: 150px;
     height: 150px;
   }
-  header h1 {
-    font-size: 2em;
-  }
+
   .menu-toggle {
     display: block;
   }
@@ -265,25 +226,6 @@ nav ul li a:hover {
 }
 
 /* =========================
-   Skills Section
-========================= */
-.skills,
-.skill-block {
-  margin-bottom: 40px;
-}
-
-.skill-block h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.skill-block p {
-  margin-bottom: 15px;
-  line-height: 1.7;
-  color: #444;
-}
-
-/* =========================
    Gallery Container
 ========================= */
 .gallery {
@@ -291,13 +233,6 @@ nav ul li a:hover {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 15px;
   margin-bottom: 15px;
-}
-
-/* الصورة الرئيسية */
-.gallery-main {
-  grid-column: span 2;
-  max-height: 300px;
-  object-fit: cover;
 }
 
 /* جميع الصور */
@@ -313,11 +248,6 @@ nav ul li a:hover {
 .gallery img:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* الصور المخفية */
-.gallery-hidden {
-  display: none;
 }
 
 /* =========================
@@ -361,14 +291,6 @@ nav ul li a:hover {
   .gallery {
     grid-template-columns: 1fr;
   }
-}
-
-/*الإضافة الأخيرة*/
-
-/* حاوية معرض الصور */
-.gallery-container {
-  width: 100%;
-  margin-top: 15px;
 }
 
 /* شبكة الصور */
@@ -436,6 +358,10 @@ nav ul li a:hover {
 
 .toggle-gallery-btn.expanded i {
   transform: rotate(180deg);
+}
+
+.skill-item:has(.video-container) {
+  width: 100%;
 }
 
 /* حاوية الفيديو المتجاوبة */
@@ -553,4 +479,3 @@ footer {
   text-align: center;
   padding: 15px;
 }
-
