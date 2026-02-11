@@ -142,7 +142,7 @@ nav .container {
 
 nav ul {
   list-style-type: none;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
   display: flex;
   /* justify-content: center; */
@@ -224,9 +224,7 @@ nav ul li a:hover {
     padding: 0;
     max-height: 0;
     overflow: hidden;
-    transition:
-      max-height 0.4s ease,
-      padding 0.3s ease;
+    transition: max-height 0.4s ease, padding 0.3s ease;
   }
   nav ul.show {
     max-height: 300px;
