@@ -26,12 +26,7 @@ body {
   color: var(--text-color);
   font-size: 16px;
 }
-.container {
-  max-width: 1100px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 20px;
-}
+
 header {
   background: var(--secondary-color);
   color: #ffffff;
@@ -134,7 +129,6 @@ ul {
 }
 nav {
   background-color: var(--primary-color);
-  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -145,6 +139,7 @@ nav .container {
   justify-content: center;
   align-items: center;
 }
+
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -191,6 +186,15 @@ nav ul li a:hover {
   background-color: var(--secondary-color);
   transform: translateY(-2px);
 }
+
+.container-nav i {
+  margin-left: 0.5rem;
+  width: 20px;
+}
+.btnlist {
+  display: none;
+}
+
 @media (max-width: 768px) {
   nav .container {
     justify-content: space-between;
@@ -211,17 +215,34 @@ nav ul li a:hover {
     margin: 5px 0;
   }
   nav ul {
-    display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: var(--primary-color);
-    padding: 10px 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.4s ease,
+      padding 0.3s ease;
   }
   nav ul.show {
+    max-height: 300px;
+    padding: 10px 0;
+  }
+
+  .btnlist {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    padding: 0 15px;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    cursor: pointer;
   }
 }
 
